@@ -18,15 +18,15 @@ class HabitViewSet(ModelViewSet):
     filter_backends = (SearchFilter, OrderingFilter, DjangoFilterBackend,)
     search_fields = ('title',)
     ordering_fields = ('place', 'time', 'action',)
-    filterset_fields = ('user', 'is_pleasant_habit', 'related_habit', 'periodicity',)
+    filterset_fields = ('owner', 'is_pleasant_habit', 'related_habit', 'periodicity',)
 
     def perform_create(self, serializer):
         habit = serializer.save()
-        habit.user = self.request.user
+        habit.owner = self.request.user
         habit.save()
 
     def get_queryset(self):
-        return Habit.objects.filter(user=self.request.user).order_by('id')
+        return Habit.objects.filter(owner=self.request.user).order_by('id')
 
 
 class PublicHabitListAPIView(generics.ListAPIView):

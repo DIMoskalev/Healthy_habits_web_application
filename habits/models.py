@@ -5,16 +5,11 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class Habit(models.Model):
-    user = models.ForeignKey(
+    owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         verbose_name="Пользователь, создавший привычку",
         **NULLABLE,
-    )
-    title = models.CharField(
-        max_length=100,
-        verbose_name="Название привычки",
-        help_text="Введите название привычки",
     )
     place = models.CharField(
         max_length=100,
