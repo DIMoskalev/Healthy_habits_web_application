@@ -62,7 +62,7 @@ class Habit(models.Model):
     )
 
     def __str__(self):
-        pass
+        return f"{self.owner} - {self.action}"
 
     class Meta:
         verbose_name = "Привычка"

@@ -33,10 +33,6 @@ class HabitViewSet(ModelViewSet):
     serializer_class = HabitSerializer
     permission_classes = [IsAuthenticated, IsOwner]
     pagination_class = HabitsPaginator
-    filter_backends = (SearchFilter, OrderingFilter, DjangoFilterBackend,)
-    search_fields = ('title',)
-    ordering_fields = ('place', 'time', 'action',)
-    filterset_fields = ('owner', 'is_pleasant_habit', 'related_habit', 'periodicity',)
 
     def perform_create(self, serializer):
         habit = serializer.save()
