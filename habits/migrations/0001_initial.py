@@ -15,23 +15,111 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Habit',
+            name="Habit",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('place', models.CharField(help_text='Укажите место, где выполняется привычка', max_length=100, verbose_name='Место выполнения привычки')),
-                ('time', models.DateTimeField(auto_now_add=True, help_text='Укажите дату и время выполнения привычки', verbose_name='Дата и время выполнения привычки')),
-                ('action', models.CharField(help_text='Укажите действие, которое нужно выполнять', max_length=100, verbose_name='Действие привычки')),
-                ('is_pleasant_habit', models.BooleanField(default=True, help_text='Укажите, является ли привычка приятной', verbose_name='Является ли привычка приятной')),
-                ('periodicity', models.PositiveIntegerField(blank=True, default=1, help_text='Укажите периодичность выполнения привычки в днях', null=True, verbose_name='Периодичность выполнения привычки')),
-                ('reward', models.CharField(blank=True, help_text='Укажите награду за привычку', max_length=100, null=True, verbose_name='Награда за привычку')),
-                ('duration', models.DurationField(blank=True, help_text='Укажите продолжительность выполнения привычки в секундах', null=True, verbose_name='Продолжительность выполнения привычки по времени в секундах')),
-                ('is_public', models.BooleanField(default=True, help_text='Укажите, является ли привычка публичной', verbose_name='Публичная привычки')),
-                ('related_habit', models.ForeignKey(blank=True, help_text='Укажите связанную привычку', null=True, on_delete=django.db.models.deletion.SET_NULL, to='habits.habit', verbose_name='Связанная привычка')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь, создавший привычку')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "place",
+                    models.CharField(
+                        help_text="Укажите место, где выполняется привычка",
+                        max_length=100,
+                        verbose_name="Место выполнения привычки",
+                    ),
+                ),
+                (
+                    "time",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Укажите дату и время выполнения привычки",
+                        verbose_name="Дата и время выполнения привычки",
+                    ),
+                ),
+                (
+                    "action",
+                    models.CharField(
+                        help_text="Укажите действие, которое нужно выполнять",
+                        max_length=100,
+                        verbose_name="Действие привычки",
+                    ),
+                ),
+                (
+                    "is_pleasant_habit",
+                    models.BooleanField(
+                        default=True,
+                        help_text="Укажите, является ли привычка приятной",
+                        verbose_name="Является ли привычка приятной",
+                    ),
+                ),
+                (
+                    "periodicity",
+                    models.PositiveIntegerField(
+                        blank=True,
+                        default=1,
+                        help_text="Укажите периодичность выполнения привычки в днях",
+                        null=True,
+                        verbose_name="Периодичность выполнения привычки",
+                    ),
+                ),
+                (
+                    "reward",
+                    models.CharField(
+                        blank=True,
+                        help_text="Укажите награду за привычку",
+                        max_length=100,
+                        null=True,
+                        verbose_name="Награда за привычку",
+                    ),
+                ),
+                (
+                    "duration",
+                    models.DurationField(
+                        blank=True,
+                        help_text="Укажите продолжительность выполнения привычки в секундах",
+                        null=True,
+                        verbose_name="Продолжительность выполнения привычки по времени в секундах",
+                    ),
+                ),
+                (
+                    "is_public",
+                    models.BooleanField(
+                        default=True,
+                        help_text="Укажите, является ли привычка публичной",
+                        verbose_name="Публичная привычки",
+                    ),
+                ),
+                (
+                    "related_habit",
+                    models.ForeignKey(
+                        blank=True,
+                        help_text="Укажите связанную привычку",
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="habits.habit",
+                        verbose_name="Связанная привычка",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Пользователь, создавший привычку",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Привычка',
-                'verbose_name_plural': 'Привычки',
+                "verbose_name": "Привычка",
+                "verbose_name_plural": "Привычки",
             },
         ),
     ]
