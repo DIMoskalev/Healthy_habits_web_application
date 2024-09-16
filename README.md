@@ -46,3 +46,7 @@ Python, Django, DRF, PostgreSQL, Redis, Celery
     Swagger - http://localhost:8000/swagger/
 
     Redoc - http://localhost:8000/redoc/
+
+# Запуск с помощью Docker
+
+Чтобы запустить проект с помощью docker необходимо выполнить команду: sudo docker compose up -d --build
